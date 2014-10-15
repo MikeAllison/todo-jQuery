@@ -44,8 +44,8 @@ $(document).ready(function() {
 	
 	function editListItem() {
 		var taskValue = $(this).siblings("label").text();
-		$(this).siblings("label").replaceWith("<input type='text' class='edit-item' value='" + taskValue + "'>");
 		$(this).siblings(".checkbox").prop("disabled", true);
+		$(this).siblings("label").replaceWith("<input type='text' class='edit-item' value='" + taskValue + "'>");
 		$(this).text("Save");
 		$(this).bind("click", saveListItem);
 	};
