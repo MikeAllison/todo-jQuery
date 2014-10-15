@@ -28,6 +28,10 @@ ul {
 	width: 500px !important; 
 }
 
+.error {
+	color: red;;
+}
+
 li .checkbox {
 	margin-right: 5px;
 	display: inline;

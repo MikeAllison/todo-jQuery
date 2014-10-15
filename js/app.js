@@ -7,23 +7,28 @@ $(document).ready(function() {
 	function addTask() {
 		var taskTextVal = $("#add-task-text").val();
 		
-		var taskListItem = "<li>";
-		taskListItem += "<input type='checkbox' class='checkbox'>";
-		taskListItem += "<label class='item'>" + taskTextVal + "</label>";
-		taskListItem += "<button class='edit'>Edit</button>";
-		taskListItem += "<button class='delete'>Delete</button>";
-		taskListItem += "</li>";
-		
-		//Append new item to incomplete list
-		$("#incomplete-list").append(taskListItem);
-		
-		//Bind click events to checkbox
-		$(".checkbox").bind("click", changeStatus);
-		$(".delete").bind("click", deleteListItem);
-		$(".edit").bind("click", editListItem);
-		
-		//Clear the textbox
-		$("#add-task-text").val('');
+		if (taskTextVal !== '') {
+			var taskListItem = "<li>";
+			taskListItem += "<input type='checkbox' class='checkbox'>";
+			taskListItem += "<label class='item'>" + taskTextVal + "</label>";
+			taskListItem += "<button class='edit'>Edit</button>";
+			taskListItem += "<button class='delete'>Delete</button>";
+			taskListItem += "</li>";
+			
+			//Append new item to incomplete list
+			$("#incomplete-list").append(taskListItem);
+			
+			//Bind click events to checkbox
+			$(".checkbox").bind("click", changeStatus);
+			$(".delete").bind("click", deleteListItem);
+			$(".edit").bind("click", editListItem);
+			
+			//Clear the textbox
+			$("#add-task-text").val('').removeClass("error");
+		} else {
+			taskTextVal = "Please enter a task!";
+			$("#add-task-text").val(taskTextVal).addClass("error");
+		};
 	};
 	
 	function changeStatus() {
