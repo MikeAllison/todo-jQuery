@@ -1,0 +1,53 @@
+#title {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#new-task, #incomplete-list {
+	padding-bottom: 10px;
+}
+
+#completed-list label {
+	text-decoration: line-through;
+}
+
+.container {
+	width: 500px !important; 
+}
+
+hr {
+	border-color: #bbb;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#add-task-text {
+	width: 400px;
+}
+
+li .checkbox {
+	margin-right: 5px;
+	display: inline;
+	min-height: 0px;
+}
+
+.item {
+	width: 350px;
+	margin-right: 10px;
+}
+
+.edit, .delete {
+	background: none;
+	color: DodgerBlue;
+	border: 0px;
+}
+
+.edit-item {
+	width: 350px;
+}
+
+
+
