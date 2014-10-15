@@ -3,16 +3,16 @@
 	padding-bottom: 20px;
 }
 
+#add-task-text {
+	width: 400px;
+}
+
 #new-task, #incomplete-list {
 	padding-bottom: 10px;
 }
 
 #completed-list label {
 	text-decoration: line-through;
-}
-
-.container {
-	width: 500px !important; 
 }
 
 hr {
@@ -24,8 +24,8 @@ ul {
 	padding-left: 0;
 }
 
-#add-task-text {
-	width: 400px;
+.container {
+	width: 500px !important; 
 }
 
 li .checkbox {
@@ -34,9 +34,8 @@ li .checkbox {
 	min-height: 0px;
 }
 
-.item {
+.item, .edit-item {
 	width: 340px;
-	margin-right: 10px;
 }
 
 .edit, .delete {
@@ -44,10 +43,5 @@ li .checkbox {
 	color: DodgerBlue;
 	border: 0px;
 }
-
-.edit-item {
-	width: 340px;
-}
-
 
 
