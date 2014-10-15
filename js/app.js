@@ -5,8 +5,10 @@ $(document).ready(function() {
 	
 	//FUNCTIONS
 	function addTask() {
-		var taskTextVal = $("#add-task-text").val();
+		//Store text entered into text input field
+		var taskTextVal = $("#add-task-text").val().trim();
 		
+		//Check for empty string
 		if (taskTextVal !== '') {
 			var taskListItem = "<li>";
 			taskListItem += "<input type='checkbox' class='checkbox'>";
@@ -18,12 +20,12 @@ $(document).ready(function() {
 			//Append new item to incomplete list
 			$("#incomplete-list").append(taskListItem);
 			
-			//Bind click events to checkbox
+			//Bind click event handler to checkbox, edit button, and delete button
 			$(".checkbox").bind("click", changeStatus);
-			$(".delete").bind("click", deleteListItem);
 			$(".edit").bind("click", editListItem);
+			$(".delete").bind("click", deleteListItem);
 			
-			//Clear the textbox
+			//Clear the text input
 			$("#add-task-text").val('').removeClass("error");
 		} else {
 			taskTextVal = "Please enter a task!";
@@ -43,19 +45,21 @@ $(document).ready(function() {
 	};
 	
 	function editListItem() {
+		//Store list item value from label
 		var taskValue = $(this).siblings("label").text();
 		$(this).siblings(".checkbox").prop("disabled", true);
-		$(this).siblings("label").replaceWith("<input type='text' class='edit-item' value='" + taskValue + "'>");
+		$(this).siblings("label").replaceWith("<input type='text' class='item-editing' value='" + taskValue + "'>");
 		$(this).text("Save");
 		$(this).bind("click", saveListItem);
 	};
 	
 	function saveListItem() {
-		var taskValue = $(this).siblings(".edit-item").val();
+		//Store list item value from text input
+		var taskValue = $(this).siblings(".item-editing").val();
 		$(this).siblings(".checkbox").prop("disabled", false);
 		$(this).text("Edit");
 		$(this).bind("click", editListItem);
-		$(this).siblings(".edit-item").replaceWith("<label class='item'>" + taskValue + "</label>");
+		$(this).siblings(".item-editing").replaceWith("<label class='item'>" + taskValue + "</label>");
 	};
 	
 	function deleteListItem() {
