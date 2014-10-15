@@ -44,13 +44,15 @@ $(document).ready(function() {
 	
 	function editListItem() {
 		var taskValue = $(this).siblings("label").text();
-		$(this).siblings("label").replaceWith("<input type='text' class='edit-item' value=" + taskValue + ">");
+		$(this).siblings("label").replaceWith("<input type='text' class='edit-item' value='" + taskValue + "'>");
+		$(this).siblings(".checkbox").prop("disabled", true);
 		$(this).text("Save");
 		$(this).bind("click", saveListItem);
 	};
 	
 	function saveListItem() {
 		var taskValue = $(this).siblings(".edit-item").val();
+		$(this).siblings(".checkbox").prop("disabled", false);
 		$(this).text("Edit");
 		$(this).bind("click", editListItem);
 		$(this).siblings(".edit-item").replaceWith("<label class='item'>" + taskValue + "</label>");
