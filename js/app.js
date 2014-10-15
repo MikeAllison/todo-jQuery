@@ -6,8 +6,6 @@ $(document).ready(function() {
 		};
 	});
 	
-	
-	
 	function addTask() {
 		var taskTextVal = $("#add-task-text").val().trim();
 		
@@ -25,11 +23,17 @@ $(document).ready(function() {
 			$(".edit").bind("click", editListItem);
 			$(".delete").bind("click", deleteListItem);
 			
-			$("#add-task-text").val('').removeClass("error");
+			$("#add-task-text").val('');
 		} else {
 			taskTextVal = "Please enter a task!";
 			$("#add-task-text").val(taskTextVal).addClass("error");
+			$("#add-task-text").blur();
+			$("#add-task-text").bind("click", clearTextField);
 		};
+	};
+	
+	function clearTextField() {
+		$("#add-task-text").val('').removeClass("error");
 	};
 	
 	function changeStatus() {
